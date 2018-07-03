@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<groupId>org.springframework.boot</groupId>
-		<version>1.4.3.RELEASE</version>
+		<version>1.5.1.RELEASE</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.iflyVoice.voice</groupId>
@@ -181,7 +181,7 @@
 		<dependency>
 			<groupId>com.iflyVoice.sdk</groupId>
 			<artifactId>lfasr-sdk-client</artifactId>
-			<!--<version>2.0.0.1005-jar-with-dependencies</version>-->
+			<version>2.0.0.1005-jar-with-dependencies</version>
 		</dependency>
 	</dependencies>
 </project>
