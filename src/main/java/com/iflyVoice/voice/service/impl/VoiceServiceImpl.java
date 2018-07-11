@@ -25,6 +25,7 @@ public class VoiceServiceImpl implements VoiceService{
 		String audioBase64 = new String(Base64.encodeBase64(audioByteArray), "UTF-8");
 		String bodyParam = "audio=" + audioBase64;
 		String result = HttpUtil.doPost(Constance.WEBIAT_URL, header, bodyParam);
+		System.err.println(result);
 		return ResultUtil.getResultSuccess(result);
 	}
 
