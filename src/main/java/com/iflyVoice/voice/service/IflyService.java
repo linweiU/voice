@@ -6,11 +6,9 @@ package com.iflyVoice.voice.service;
  */
 public interface IflyService {
 
-    /**
-     *
-     * @return
-     */
-     public String doTest();
+
+
+    // public void loadVoiceByPath(String path);
 
 
 }

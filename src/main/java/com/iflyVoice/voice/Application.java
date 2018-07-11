@@ -10,9 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
-@SuppressWarnings("deprecation")
+import com.iflyVoice.voice.config.ConfigInfo;
+
+
 @SpringBootApplication
 @MapperScan("com.iflyVoice.voice.mapper")
 public class Application extends SpringBootServletInitializer {
@@ -22,8 +25,8 @@ public class Application extends SpringBootServletInitializer {
             // 初始化log4j
             String log4jPath = Application.class.getClassLoader().getResource("").getPath()
                     + "log4j.properties";
-            // log.debug("初始化Log4j。。。。");
-            // log.debug("path is " + log4jPath);
+            log.debug("初始化Log4j......");
+            log.debug("path is " + log4jPath);
             PropertyConfigurator.configure(log4jPath);
         } catch (Exception e) {
             e.printStackTrace();
@@ -31,7 +34,10 @@ public class Application extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication springApplication = new SpringApplication(Application.class);
+        ConfigurableApplicationContext context = springApplication.run(args);
+        ConfigInfo configInfo = context.getBeanFactory().getBean("configInfo", ConfigInfo.class);
+        log.info("\n" + configInfo.toString());
         log.debug("============= SpringBoot Start Success =============");
     }
 
