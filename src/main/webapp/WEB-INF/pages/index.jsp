@@ -4,15 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>讯飞语音功能测试</title>
 </head>
 <body>
+    <h5>讯飞语音功能测试</h5>
     <div>
         <audio controls autoplay></audio>
         <input onclick="startRecording()" type="button" value="录音" />
-        <input onclick="stopRecording()" type="button" value="停止" />
+        <%--<input onclick="stopRecording()" type="button" value="停止" />--%>
         <input onclick="playRecording()" type="button" value="播放" />
         <input onclick="uploadAudio()" type="button" value="提交" />
+    </div>
+    <div>
+        <textarea id = "textvalue" rows="10" cols="100"></textarea>
     </div>
 
  <!--    <script type="text/javascript" src="HZRecorder.js"></script> -->
@@ -261,8 +265,16 @@
                         //alert(e.target.responseText);
                         //alert("上传成功");
                        // window.location.href="/voice/getVoice";
-                        alert(e.target.responseText);
-                       //alert(e.target.responseText);
+                       // alert(e.target.responseText);
+                      /*  $("#textvalue").append(
+                            "<span>" + e.target.responseText
+                            + "</span>");*/
+                      //  $("#
+                        var result = JSON.parse(e.target.responseText)
+                        console.log(result);
+                        document.getElementById("textvalue").innerText = ""
+                        document.getElementById("textvalue").innerText = result.msg
+                        //alert(e.target.responseText);
                         break;
                     case 'error':
                         alert("上传失败");
